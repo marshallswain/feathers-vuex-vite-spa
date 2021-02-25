@@ -57,6 +57,13 @@ export function auth({ feathers }: { feathers: { apiClient: any, apiVuex: any } 
       }
     })
 
+    // Clean up Auth0 code and state from the URL after login redirect.
+    const search = window.location.search
+    const cameFromRedirect = search.includes('code=') && search.includes('state=')
+    if (cameFromRedirect) {
+      router.replace({ path: '/' })
+    }
+
     // Send user to home page if there's a problem with auth.
     watch(
       () => $auth0.state.error,
