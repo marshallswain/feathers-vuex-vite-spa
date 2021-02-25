@@ -48,9 +48,37 @@ The below steps are required to get it to work. To disable it, see the next sect
   - Allowed Callback URLs
   - Allowed Logout URLs
   - Allowed Web Origins
-2. Rename the environment variables in `src/auth0.ts` to match your environment.  Use the domain and client secret from step 1.
+2. Rename the environment variables in to match your environment.  Also update the following files if you change the variable names:
+  - `src/auth0.ts` Use the domain and client secret from step 1.
+  - `src/feathers.ts` Update the `apiUrl` variable.
 
 If you are using VS Code, you may need to use the "Reload Window" command after you configure environment variables.
 
-### Disable Auth
+### Disable Auth0
 
+You can disable Auth0 integration by doing the following:
+
+1. Update lines from `src/main.ts`
+
+```js
+// Remove this line
+import { setupAuth0, storage } from '~/modules/auth0'
+
+// Remove this line
+setupAuth0()
+
+// Update this line to remove the `storage` variable
+const feathers = setupFeathers({ storage })
+// The above line should look like this:
+const feathers = setupFeathers({})
+```
+
+2. In `src/store/store.ts`, Change the auth plugin:
+
+```js
+// Remove this line
+auth({ feathers }),
+
+// Uncomment this line to use the default auth plugin
+feathers.apiVuex.makeAuthPlugin({ userService: 'users' })
+```
