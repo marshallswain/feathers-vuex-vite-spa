@@ -1,5 +1,5 @@
 {
-  "name": "fv-vite-test",
+  "name": "feathers-vuex-vite-spa",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
