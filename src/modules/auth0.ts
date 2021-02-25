@@ -82,14 +82,12 @@ export const storage = {
     let token
 
     try {
-      console.log('getting token')
       $auth0.client = await setupClient()
       token = await $auth0.client?.getTokenSilently()
     } catch (error) {
       console.error('feathers auth0 storage error', error)
       token = ''
     }
-    console.log('token', token)
     return token
   },
   setItem() {},
