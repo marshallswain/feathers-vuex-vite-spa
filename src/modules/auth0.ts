@@ -57,7 +57,7 @@ export const install = ({ app }: { app: App }) => {
   app.use({
     install(app: App, options: any) {
       app.config.globalProperties.$auth0 = $auth0
-      app.provide('$auth0', $auth0)
+      app.provide('auth0', $auth0)
     }
   })
 }
