@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-row items-center justify-center p-2 space-x-5">
+    <DarkModeToggle />
     <button v-if="auth0.state.isLoading" class="button" type="button">
       Loading
       <feather-loader class="ml-2" />

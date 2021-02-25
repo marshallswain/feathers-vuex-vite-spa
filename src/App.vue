@@ -23,10 +23,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply dark:text-gray-100;
+}
+.dark body {
+  @apply bg-gray-800;
 }
 </style>
