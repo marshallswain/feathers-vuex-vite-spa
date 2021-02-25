@@ -2,7 +2,7 @@
   <div>Home Page</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   setup() {
     return {};
