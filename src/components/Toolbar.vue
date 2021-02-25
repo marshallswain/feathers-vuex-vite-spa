@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-row items-center justify-center p-2 space-x-5">
-    <button v-if="$auth0.state.isLoading" class="button" type="button">
+    <button v-if="auth0.state.isLoading" class="button" type="button">
       Loading
     </button>
     <div v-else>
       <button
-        v-if="$auth0.state.isAuthenticated"
+        v-if="auth0.state.isAuthenticated"
         class="button"
         type="button"
         @click="logout"
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { defineProps, inject } from "vue";
 
-const $auth0: any = inject("$auth0");
+const auth0: any = inject("auth0");
 
 defineProps({
   msg: String,
@@ -28,11 +28,11 @@ defineProps({
 
 function login() {
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#loginwithredirect
-  $auth0.client.loginWithRedirect();
+  auth0.client.loginWithRedirect();
 }
 function logout() {
   // https://auth0.github.io/auth0-spa-js/interfaces/logoutoptions.html
-  $auth0.client.logout({ returnTo: window.location.origin });
+  auth0.client.logout({ returnTo: window.location.origin });
 }
 </script>
 
