@@ -2,6 +2,7 @@
   <div class="flex flex-row items-center justify-center p-2 space-x-5">
     <button v-if="auth0.state.isLoading" class="button" type="button">
       Loading
+      <feather-loader class="ml-2" />
     </button>
     <div v-else>
       <button
@@ -11,8 +12,11 @@
         @click="logout"
       >
         Logout
+        <feather-log-out class="ml-2" />
       </button>
-      <button v-else class="button" type="button" @click="login">Login</button>
+      <button v-else class="button" type="button" @click="login">
+        Login <feather-log-in class="ml-2" />
+      </button>
     </div>
   </div>
 </template>
@@ -38,6 +42,6 @@ function logout() {
 
 <style lang="postcss" scoped>
 .button {
-  @apply bg-blue-600 text-white px-4 py-2 rounded-lg;
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg flex flex-row items-center;
 }
 </style>
