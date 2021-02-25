@@ -1,23 +1,21 @@
 import 'windi.css'
-import { createApp } from 'vue'
+import { setupAuth0, storage } from '~/modules/auth0'
+import { createApp, App as AppType } from 'vue'
 import { setupFeathers } from './feathers'
 import { setupStore } from './store/store'
 import { router } from './routes'
 import App from './App.vue'
 
+setupAuth0()
 
-function setup(App) {
-  const app = createApp(App)
-  const feathers = setupFeathers()
-  app.use(router)
-  app.use(setupStore({ feathers }))
+const app = createApp(App)
+const feathers = setupFeathers({ apiUrl: import.meta.env.VITE_APP1_API_URL as string, storage  })
+app.use(router)
+app.use(setupStore({ feathers }))
 
-  // install all modules under `modules/`
-  Object.values(import.meta.globEager('./modules/*.ts')).map(i =>
-    i.install?.({ app }),
-  )
+// install all modules under `modules/`
+Object.values(import.meta.globEager('./modules/*.ts')).map(i =>
+  i.install?.({ app, isClient: true, router }),
+)
 
-  app.mount('#app')
-}
-
-setup(App)
+app.mount('#app')
