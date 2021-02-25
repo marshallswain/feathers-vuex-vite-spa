@@ -9,7 +9,7 @@ import App from './App.vue'
 setupAuth0()
 
 const app = createApp(App)
-const feathers = setupFeathers({ apiUrl: import.meta.env.VITE_APP1_API_URL as string, storage  })
+const feathers = setupFeathers({ storage })
 app.use(router)
 app.use(setupStore({ feathers }))
 

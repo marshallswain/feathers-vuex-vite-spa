@@ -5,7 +5,8 @@ import io from 'socket.io-client'
 import { iff, discard } from 'feathers-hooks-common'
 import feathersVuex from '@feathersjs/vuex'
 
-export function setupFeathers({ apiUrl, storage = window.localStorage }: { apiUrl: string, storage?: any }) {
+export function setupFeathers({ storage = window.localStorage }: { storage?: any }) {
+  const apiUrl = import.meta.env.VITE_APP1_API_URL as string
   const socket = io(apiUrl, { transports: ['websocket'] })
 
   const apiClient = feathers()
