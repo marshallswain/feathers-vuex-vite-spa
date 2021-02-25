@@ -25,11 +25,6 @@ export function setupFeathers({ apiUrl, storage = window.localStorage }: { apiUr
       },
     })
 
-  // Immediately authenticate over the socket connection.
-  apiClient.authenticate().catch(error => {
-    console.log('authenticate error', error)
-  })
-
   // Setting up feathers-vuex
   const apiVuex = feathersVuex(apiClient, {
     serverAlias: 'api', // optional for working with multiple APIs (this is the default value)
