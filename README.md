@@ -30,8 +30,6 @@ This is a PWA template for FeathersVuex and Vite, inspired by [Vitesse](https://
 
 - 🔥 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
 
-- 🖨 Server-side generation (SSG) via [vite-ssg](https://github.com/antfu/vite-ssg)
-
 - 🦾 TypeScript, of course
 
 - ☁️ Deploy on Netlify, zero-config
