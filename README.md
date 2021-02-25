@@ -73,7 +73,7 @@ const feathers = setupFeathers({ storage })
 const feathers = setupFeathers({})
 ```
 
-2. In `src/store/store.ts`, Change the auth plugin:
+2. In `src/store/store.ts`, Switch back to the vanilla FeathersVuex auth plugin:
 
 ```js
 // Remove this line
