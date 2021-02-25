@@ -1,0 +1,9 @@
+{
+  "editor.defaultFormatter": "octref.vetur",
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  "volar.tsPlugin": true,
+  "i18n-ally.localesPaths": [
+    "locales"
+  ]
+}
