@@ -20,7 +20,7 @@ This is a PWA template for FeathersVuex and Vite, inspired by [Vitesse](https://
 
 - 🎨 [Windi CSS](https://github.com/windicss/windicss) - on-demand Tailwind CSS with speed
 
-- 😃 [Use icons from any icon sets, with no compromise](./src/components)
+- 😃 [Use icons from any icon sets, with no compromise](./src/components) [Browse Icons](https://icones.js.org/)
 
 - 🌍 [I18n ready](./locales)
 
